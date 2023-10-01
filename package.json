@@ -1,0 +1,17 @@
+{
+  "name": "waves",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^4.4.9"
+  },
+  "dependencies": {
+    "dat.gui": "^0.7.9",
+    "three": "^0.157.0"
+  }
+}
