@@ -1,5 +1,6 @@
 const fragmentShader = /* glsl */ `
   uniform sampler2D uTex;
+  uniform float uWaveAmp;
 
   varying vec2 vUv;
   varying float vElevation;
@@ -26,7 +27,7 @@ const fragmentShader = /* glsl */ `
 
     colorA = mix(texture2D(uTex, vUv).rgb, colorA, vElevation);
     colorA = mix(colorA, c1.rgb, pow(1. - vElevation, 2.) * .9);
-    colorA *= mix(vec3(1.), c0.rgb, pow(vT, 2.) * .9);
+    colorA *= mix(vec3(1.), c0.rgb, pow(vT, 2.) * mix(.9, 1., smoothstep(.6, 1., uWaveAmp)) * smoothstep(0., .6, uWaveAmp));
 
     gl_FragColor = vec4(colorA, 1.0);
   }
